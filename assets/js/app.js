@@ -12,6 +12,12 @@ let previousBtn = document.querySelector(".previous-btn");
 let nextBtn = document.querySelector(".next-btn");
 let checkInput = document.querySelector(".switch input");
 
+if (!localStorage.getItem("current-index")) {
+  currentListIndex = 1;
+} else {
+  currentListIndex = localStorage.getItem("current-index");
+}
+
 async function getData() {
   let json = await fetch("data.json");
   let result = await json.json();
@@ -126,6 +132,9 @@ window.onload = function () {
     document.body.classList.remove("dark-mode");
     document.body.classList.remove("light-mode");
     document.body.classList.add(localStorage.getItem("website-mode"));
+    if (localStorage.getItem("website-mode") == "dark-mode") {
+      checkInput.checked = true;
+    }
   }
 };
 
