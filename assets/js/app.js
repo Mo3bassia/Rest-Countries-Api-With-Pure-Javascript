@@ -195,5 +195,6 @@ checkInput.addEventListener("change", function () {
 
 closeBtn.onclick = function () {
   overlayCountry.classList.remove("show");
-  overlayCountry.querySelector(".border-countries").innerHTML = "";
+  overlayCountry.querySelector(".border-countries").innerHTML =
+    "<strong>Border Countries: </strong>";
 };

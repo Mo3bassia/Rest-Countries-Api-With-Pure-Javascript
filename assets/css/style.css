@@ -30,6 +30,10 @@ body.light-mode header {
   background-color: var(--Very-Light-Gray-header);
 }
 
+main {
+  margin-top: 40px;
+}
+
 header .container {
   display: flex;
   justify-content: space-between;
@@ -85,7 +89,7 @@ body.dark-mode .form {
   background-color: var(--Dark-Blue);
 }
 
-.search-flex {
+/* .search-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,7 +110,7 @@ body.light-mode .select-box select {
 body.dark-mode .select-box select {
   background-color: var(--Dark-Blue);
   color: #fff;
-}
+} */
 
 .countries {
   display: grid;
@@ -303,7 +307,7 @@ body.dark-mode .border-countries span {
 }
 
 .button {
-  position: relative;
+  position: fixed;
   width: 4em;
   height: 4em;
   border: none;
@@ -385,4 +389,26 @@ body.dark-mode .border-countries span {
 
 body.dark-mode .button {
   background-color: var(--Very-Light-Gray);
+}
+
+@media (max-width: 968px) {
+  .overlay-country .container {
+    flex-wrap: wrap;
+  }
+  .overlay-country .image-container {
+    width: 100%;
+    text-align: center;
+  }
+  .overlay-country img {
+    width: 90%;
+  }
+  .button {
+    top: 40px;
+    right: 40px;
+    transform: translate(0);
+    left: unset;
+  }
+  .overlay-country .container {
+    margin-top: 50px;
+  }
 }
