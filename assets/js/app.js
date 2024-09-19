@@ -10,6 +10,7 @@ let current = document.querySelector(".pagination-desc .current");
 let countries = document.querySelector(".countries");
 let previousBtn = document.querySelector(".previous-btn");
 let nextBtn = document.querySelector(".next-btn");
+let checkInput = document.querySelector(".switch input");
 
 async function getData() {
   let json = await fetch("data.json");
@@ -25,6 +26,7 @@ async function getData() {
     getFullList();
   }
   showCountries();
+  checkFirstorLast();
 }
 
 function getFullList() {
@@ -95,7 +97,7 @@ function checkFirstorLast() {
   if (currentListIndex === 1) {
     previousBtn.classList.add("disabled");
     previousBtn.setAttribute("disabled", "disabled");
-  } else if (currentListIndex === countriesAllowed) {
+  } else if (currentListIndex === total) {
     nextBtn.classList.add("disabled");
     nextBtn.setAttribute("disabled", "disabled");
   } else {
@@ -116,3 +118,25 @@ previousBtn.onclick = function () {
   showCountries();
   checkFirstorLast();
 };
+
+window.onload = function () {
+  if (!localStorage.getItem("website-mode")) {
+    localStorage.setItem("website-mode", "light-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.remove("light-mode");
+    document.body.classList.add(localStorage.getItem("website-mode"));
+  }
+};
+
+checkInput.addEventListener("change", function () {
+  if (checkInput.checked) {
+    document.body.classList.remove("light-mode");
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("website-mode", "dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+    localStorage.setItem("website-mode", "light-mode");
+  }
+});
