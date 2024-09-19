@@ -7502,18 +7502,18 @@
     "independent": false
   },
   {
-    "name": "Israel",
+    "name": "Palestine, State of",
     "topLevelDomain": [".il"],
     "alpha2Code": "IL",
     "alpha3Code": "ISR",
     "callingCodes": ["972"],
     "capital": "Jerusalem",
-    "altSpellings": ["IL", "State of Israel", "Medīnat Yisrā'el"],
+    "altSpellings": ["IL", "State of Palestine", "Medīnat Yisrā'el"],
     "subregion": "Western Asia",
     "region": "Asia",
     "population": 9216900,
     "latlng": [31.5, 34.75],
-    "demonym": "Israeli",
+    "demonym": "Palestinian",
     "area": 20770,
     "gini": 39,
     "timezones": ["UTC+02:00"],
@@ -7527,7 +7527,7 @@
     "currencies": [
       {
         "code": "ILS",
-        "name": "Israeli new shekel",
+        "name": " new shekel",
         "symbol": "₪"
       }
     ],
@@ -7546,17 +7546,17 @@
       }
     ],
     "translations": {
-      "br": "Israel",
-      "pt": "Israel",
-      "nl": "Israël",
-      "hr": "Izrael",
-      "fa": "اسرائیل",
-      "de": "Israel",
-      "es": "Israel",
-      "fr": "Israël",
-      "ja": "イスラエル",
-      "it": "Israele",
-      "hu": "Izrael"
+      "br": "Palestina",
+      "pt": "Palestina",
+      "nl": "Palestijnse gebieden",
+      "hr": "Palestina",
+      "fa": "فلسطین",
+      "de": "Palästina",
+      "es": "Palestina",
+      "fr": "Palestine",
+      "ja": "パレスチナ",
+      "it": "Palestina",
+      "hu": "Palesztina"
     },
     "flag": "https://flagcdn.com/il.svg",
     "cioc": "ISR",
@@ -11496,7 +11496,7 @@
       },
       {
         "code": "ILS",
-        "name": "Israeli new shekel",
+        "name": "new shekel",
         "symbol": "₪"
       },
       {

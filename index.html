@@ -41,6 +41,65 @@
         </label>
       </div>
     </header>
+    <div class="overlay-country">
+      <button class="button">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>
+
+      <div class="container">
+        <div class="image-container">
+          <img src="" alt="" />
+        </div>
+        <div class="description">
+          <h2 class="title"></h2>
+          <div class="details-flex">
+            <p class="native-name">
+              <strong>Native Name: </strong> <span></span>
+            </p>
+            <p class="population">
+              <strong>Population: </strong> <span></span>
+            </p>
+            <p class="region"><strong>Region: </strong> <span></span></p>
+            <p class="sub-region">
+              <strong>Sub Region: </strong> <span></span>
+            </p>
+            <p class="capital"><strong>Capital: </strong> <span></span></p>
+            <p class="languages"><strong>Languages: </strong> <span></span></p>
+            <p class="area">
+              <strong>Area: </strong> <span></span><sup> km²</sup>
+            </p>
+            <p class="currencies">
+              <strong>Currencies: </strong> <span></span>
+            </p>
+            <a class="location"
+              ><strong>Location: </strong>
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-map-pin"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle></svg></span
+            ></a>
+          </div>
+          <p class="border-countries">
+            <strong>Border Countries: </strong>
+          </p>
+        </div>
+      </div>
+    </div>
     <main>
       <div class="container">
         <div class="search-flex">
@@ -157,6 +216,7 @@
         <span class="current"></span> of <span class="total"></span>
       </p>
     </main>
+    <script src="assets/js/scrollreveal.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>

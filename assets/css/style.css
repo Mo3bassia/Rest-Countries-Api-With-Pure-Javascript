@@ -36,10 +36,12 @@ header .container {
   align-items: center;
 }
 
-body.light-mode {
+body.light-mode,
+body.light-mode .overlay-country {
   background-color: var(--Very-Light-Gray);
 }
-body.dark-mode {
+body.dark-mode,
+body.dark-mode .overlay-country {
   background-color: var(--Very-Dark-Blue-Bg);
 }
 
@@ -117,6 +119,19 @@ body.dark-mode .select-box select {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.country-box:hover {
+  transform: scale(1.02);
+}
+
+body.light-mode .overlay-country {
+  color: #111;
+}
+body.dark-mode .overlay-country {
+  color: var(--Very-Light-Gray);
 }
 
 body.light-mode .country-box {
@@ -169,7 +184,6 @@ body.light-mode .pagination button {
 }
 body.dark-mode .pagination button {
   background-color: var(--Dark-Blue);
-  cursor: pointer;
 }
 
 body.light-mode .pagination button:hover {
@@ -208,4 +222,167 @@ button:disabled,
 button.disabled {
   opacity: 0.5;
   cursor: no-drop;
+}
+
+.overlay-country {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color: ; */
+  backdrop-filter: blur(20px);
+  z-index: -1;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.overlay-country.show {
+  opacity: 1;
+  z-index: 6;
+}
+
+.overlay-country .image-container {
+  width: 40%;
+}
+
+.overlay-country img {
+  width: 70%;
+  border-radius: 20px;
+}
+
+.overlay-country .container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay-country .description {
+  flex: 1;
+}
+
+.details-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-block: 20px;
+}
+
+.overlay-country .title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+body.dark-mode .overlay-country .details-flex span,
+body.dark-mode .overlay-country .details-flex a {
+  color: var(--Little-Dark-Gray);
+}
+body.light-mode .overlay-country .details-flex span,
+body.light-mode .overlay-country .details-flex a {
+  color: var(--Dark-Blue);
+}
+
+.border-countries {
+  display: none;
+}
+
+.border-countries span {
+  padding: 7px 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+body.light-mode .border-countries span {
+  background-color: var(--Very-Light-Gray-header);
+}
+body.dark-mode .border-countries span {
+  color: var(--Little-Dark-Gray);
+  display: inline-block;
+  background-color: var(--Dark-Blue);
+}
+
+.button {
+  position: relative;
+  width: 4em;
+  height: 4em;
+  border: none;
+  background: rgba(180, 83, 107, 0.11);
+  border-radius: 5px;
+  transition: background 0.5s;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.X {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #000;
+  transform: translateX(-50%) rotate(45deg);
+  transition: 0.5s;
+}
+
+.Y {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #000;
+  transform: translateX(-50%) rotate(-45deg);
+  transition: 0.5s;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  padding: 0.8rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  top: -70%;
+  left: 50%;
+  width: 3em;
+  height: 1.7em;
+  font-size: 12px;
+  background-color: rgb(19, 22, 24);
+  color: rgb(187, 229, 236);
+  border: none;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.button:hover {
+  background-color: rgb(211, 21, 21) !important;
+}
+
+.button:active {
+  background-color: rgb(130, 0, 0) !important;
+}
+
+.button:hover .X,
+.button:hover .Y {
+  background-color: #fff;
+}
+
+.button:hover > .close {
+  animation: close 0.2s forwards 0.25s;
+}
+
+@keyframes close {
+  100% {
+    opacity: 1;
+  }
+}
+
+body.dark-mode .button {
+  background-color: var(--Very-Light-Gray);
 }

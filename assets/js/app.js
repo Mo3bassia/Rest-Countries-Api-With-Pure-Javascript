@@ -1,5 +1,5 @@
 let allCountries = [];
-let countriesAllowed = 15;
+let countriesAllowed = 8;
 let allCountriesList = [];
 let currentIndex = 0;
 let currentList = 1;
@@ -11,11 +11,13 @@ let countries = document.querySelector(".countries");
 let previousBtn = document.querySelector(".previous-btn");
 let nextBtn = document.querySelector(".next-btn");
 let checkInput = document.querySelector(".switch input");
+let overlayCountry = document.querySelector(".overlay-country");
+let closeBtn = document.querySelector(".button");
 
 if (!localStorage.getItem("current-index")) {
   currentListIndex = 1;
 } else {
-  currentListIndex = localStorage.getItem("current-index");
+  currentListIndex = +localStorage.getItem("current-index");
 }
 
 async function getData() {
@@ -93,6 +95,45 @@ function showCountries() {
     ul.append(region);
     region.append(spanRegion);
     region.innerHTML += allCountriesList[currentListIndex - 1][index].region;
+
+    country.onclick = function () {
+      overlayCountry.classList.add("show");
+      overlayCountry.querySelector("img").src = item.flags.svg;
+      overlayCountry.querySelector("img").alt = item.name;
+      overlayCountry.querySelector(".title").textContent = item.name;
+      overlayCountry.querySelector(".native-name span").textContent =
+        item.nativeName;
+      overlayCountry.querySelector(".population span").textContent =
+        item.population;
+      overlayCountry.querySelector(".region span").textContent = item.region;
+      overlayCountry.querySelector(".sub-region span").textContent =
+        item.subregion;
+      overlayCountry.querySelector(".capital span").textContent = item.capital;
+      overlayCountry.querySelector(".area span").textContent = item.area;
+      overlayCountry.querySelector(".languages span").textContent =
+        item.languages.map((e) => e.name).join(", ");
+      overlayCountry.querySelector(".currencies span").textContent =
+        item.currencies.map((e) => e.name + " " + e.symbol).join(", ");
+      overlayCountry.querySelector(
+        ".location"
+      ).href = `https://www.google.com/maps/place/${item.name}`;
+      let countriesBordered = [];
+      if (item.borders != undefined) {
+        overlayCountry.querySelector(".border-countries").style.display =
+          "block";
+        item.borders.forEach((border) => {
+          countriesBordered.push(
+            allCountries.filter((country) => country.alpha3Code == border)[0]
+          );
+        });
+        countriesBordered.forEach((country) => {
+          let span = document.createElement("span");
+          span.textContent = country.name;
+
+          overlayCountry.querySelector(".border-countries").append(span);
+        });
+      }
+    };
   });
   current.textContent = currentListIndex;
 }
@@ -116,11 +157,13 @@ function checkFirstorLast() {
 
 nextBtn.onclick = function () {
   currentListIndex += 1;
+  localStorage.setItem("current-index", currentListIndex);
   showCountries();
   checkFirstorLast();
 };
 previousBtn.onclick = function () {
   currentListIndex -= 1;
+  localStorage.setItem("current-index", currentListIndex);
   showCountries();
   checkFirstorLast();
 };
@@ -149,3 +192,8 @@ checkInput.addEventListener("change", function () {
     localStorage.setItem("website-mode", "light-mode");
   }
 });
+
+closeBtn.onclick = function () {
+  overlayCountry.classList.remove("show");
+  overlayCountry.querySelector(".border-countries").innerHTML = "";
+};
