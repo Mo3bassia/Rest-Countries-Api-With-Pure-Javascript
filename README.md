@@ -1,11 +1,26 @@
-# Frontend Mentor - REST Countries API with color theme switcher With Pure Javascript
+# Mo3bassia - REST Countries API with color theme switcher With Pure Javascript
 
-![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [REST Countries API with color theme switcher With Pure Javascript challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
-## Challenge Link
+## Overview
 
-- [Challenge prview link](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
+### Screenshot
 
-## Live Demo
+![](./design/desktop-preview.jpg)
 
-- [Live Preview Here](https://rest-countries-api-with-color-theme-switche-mo3bassias-projects.vercel.app)
+### Links
+
+- Solution URL: [here](https://www.frontendmentor.io/solutions/rest-countries-api-with-pure-javascript-7J94WpECEl)
+- Live Site URL: [here](https://rest-countries-api-with-color-theme-switche-mo3bassias-projects.vercel.app)
+
+### Built with
+
+- HTML5
+- Google Fonts
+- CSS
+- Grid Layout
+- Javascript
+- Fetch API
+- Js Locale Storage
+
+### 🚀🚀🚀
